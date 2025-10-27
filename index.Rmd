@@ -1,16 +1,20 @@
 ---
-title: "My awesome website"
+title: "Ainsel Levitskaia-Collins"
 output: 
   html_document:
-    toc: true
-    toc_float: true
-    theme: cerulean
+    theme: flatly
 ---
+
+Welcome to my website! Links to information about me in the navigation bar above.
+
+#### *My Projects*
+
+- Instacart Analysis (link to page when available)
+
 
 problem 1 content:
 
-- a brief introductory landing page
-- a page giving your academic and professional experience (ie a resume)
-- links in the site to your github account, email, and other professional networks
+- [x] a brief introductory landing page
+- [ ] a page giving your academic and professional experience (ie a resume)
+- [x] links in the site to your github account, email, and other professional networks
 
-test
