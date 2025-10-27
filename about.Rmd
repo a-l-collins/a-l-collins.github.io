@@ -1,6 +1,54 @@
 ---
 title: "About Me"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
 ---
 
-about page
+### Experience
+
+**REZI** 8/2023 – 10/2023
+
+*Software Development Intern*
+
+- Aided in the development of management tools that dynamically searched over a hundred parameters using javascript and the Retool program
+- REZI was a company that aimed to make the rental experience simpler for both renters and unit owners by acting as an intermediary tool for both parties
+
+
+**Lifespan Language Lab at the University of Wisconsin at Madison** 3/2023 – 7/2023
+
+*Research Coordinator*
+
+- Scored the tests of approximately 30 participants, which involved reviewing several hundred data points per participant
+- Aided the lab’s outreach by creating a logo and designing a website for the lab
+- The Lifespan Language Lab is studying the language in individuals with the Fragile X premutation to determine if language can be used to predict which individuals will later develop a neurodegenerative disorder as a result of the premutation
+
+
+**Diversity, Equity, and Inclusion committee in the Communication Sciences and Disorders Department** 9/2022 – 5/2023
+
+*Student Liaison*
+
+- Kept up accountability and regular communication within the task forces by hosting biweekly meetings with each task force and sending out monthly check-ins
+- Aided task forces as necessary, such as by helping develop a resource database
+- The committee is composed of six independent task forces, and my role was to maintain communication between the task forces and with the overarching department
+
+
+### Education
+
+**University of Wisconsin at Madison** 9/2019 — 5/2023
+
+*Communication Sciences and Disorders, B.S.*
+
+
+
+**Columbia University** 9/2024 — present
+
+*Epidemiology, M.S.*
+
+
+### Other Skills
+
+- Skilled in R, SAS, java, javascript, Retool, REDCap, communicative skills, and organizational skills
+- Hobbies and interests include digital art, creative writing, and bouldering
