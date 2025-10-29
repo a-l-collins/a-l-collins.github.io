@@ -9,4 +9,4 @@ Welcome to my website! Links to information about me in the navigation bar above
 
 #### *My Projects*
 
-- Instacart Analysis (link to page when available)
+- [NYC Restaurant Inspections Analysis](restaurant.html)

@@ -1,0 +1,105 @@
+---
+title: "NYC Restaurant Inspections"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+theme_set(theme_minimal())
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r message = FALSE, warning = FALSE}
+data("rest_inspec")
+
+rest_inspec <- rest_inspec %>% 
+  janitor::clean_names()
+
+rest_top_cuisines <- rest_inspec %>%
+  count(cuisine_description) %>% 
+  arrange(desc(n)) %>% 
+  top_n(5)
+
+names <- pull(rest_top_cuisines, cuisine_description)
+
+plot_council <- rest_inspec %>% 
+  filter(boro == "Manhattan") %>% 
+  drop_na(council_district) %>% 
+  filter(grade == c("A", "B", "C")) %>%
+  group_by(council_district) %>% 
+  count(grade) %>% 
+  arrange(desc(n)) %>% 
+  ggplot(aes(x = council_district, y = n, fill = grade)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  xlab("Manhattan Council District") +
+  ylab("Number of Restaurants")
+
+ggplotly(plot_council)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r message = FALSE, warning = FALSE}
+plot_lat_long <- rest_inspec %>% 
+  filter(boro == "Manhattan") %>% 
+  filter(latitude != 0) %>% 
+  filter(longitude != 0) %>% 
+  drop_na(score) %>% 
+  filter(score < 50) %>% 
+  plot_ly(
+    x = ~latitude,
+    y = ~longitude,
+    type = "scatter",
+    mode = "markers",
+    color = ~score,
+    alpha = 0.5
+  )
+
+plot_lat_long
+```
+
+### Chart C
+
+```{r message = FALSE, warning = FALSE}
+plot_top_cuisines <- rest_inspec %>% 
+  filter(cuisine_description == names) %>% 
+  filter(boro == "Manhattan") %>% 
+  mutate(
+    cuisine_description = case_match(cuisine_description,
+      "Latin (Cuban, Dominican, Puerto Rican, South & Central American)" ~ "Latin",
+      "American" ~ "American",
+      "Chinese" ~ "Chinese",
+      "Café/Coffee/Tea" ~ "Café/Coffee/Tea",
+      "Pizza" ~ "Pizza")
+  ) %>% 
+  filter(score < 50) %>% 
+  plot_ly(
+    y = ~score, 
+    color = ~cuisine_description, 
+    type = "box", 
+    colors = "viridis")
+
+plot_top_cuisines
+```
