@@ -2,8 +2,7 @@
 title: "NYC Restaurant Inspections"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
@@ -22,9 +21,6 @@ options(
 scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
-
-Column {data-width=650}
------------------------------------------------------------------------
 
 ### Chart A
 
@@ -55,9 +51,6 @@ plot_council <- rest_inspec %>%
 
 ggplotly(plot_council)
 ```
-
-Column {data-width=350}
------------------------------------------------------------------------
 
 ### Chart B
 
